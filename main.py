@@ -1,5 +1,6 @@
 import asyncio
 import os
+import webbrowser
 import socket
 import sys
 import time
