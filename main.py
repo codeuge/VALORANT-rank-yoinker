@@ -352,6 +352,13 @@ try:
                         if player["Subject"] == Requests.puuid:
                             if cfg.get_feature_flag("discord_rpc"):
                                 rpc.set_data({"rank": playerRank["rank"], "rank_name": colors.escape_ansi(NUMBERTORANKS[playerRank["rank"]]) + " | " + str(playerRank["rr"]) + "rr"})
+                        
+                        elif "radiant" in (NUMBERTORANKS[playerRank["peakrank"]]).lower():
+                            if cfg.open_profiles: 
+                                name, tag = names[player["Subject"]].split("#")
+                                url = f"https://tracker.gg/valorant/profile/riot/{name}%23{tag}/overview"
+                                webbrowser.open(url, new=1, autoraise=True)
+
                         # rankStatus = playerRank[1]
                         #useless code since rate limit is handled in the requestsV
                         # while not rankStatus:
